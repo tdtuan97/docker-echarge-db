@@ -1,0 +1,27 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:8.0.2
+    container_name: mysql
+    command: mysqld --sql_mode=""
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3307:3307"
+    environment:
+      MYSQL_DATABASE: echarge
+      MYSQL_ROOT_USER: root
+      MYSQL_ROOT_PASSWORD: 1
+      MYSQL_USER: echarge
+      MYSQL_PASSWORD: 1
+      SERVICE_NAME: mysql8
+    volumes:
+      #- ./mysql/my.cnf:/etc/mysql/my.cnf
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./db_data/:/var/lib/mysql
+    networks:
+      - echarge-db-network
+
+#Docker Networks
+networks:
+  echarge-db-network:

@@ -7,7 +7,7 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - "3307:3307"
+      - "3307:3306"
     environment:
       MYSQL_DATABASE: echarge
       MYSQL_ROOT_USER: root

@@ -15,11 +15,9 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
--- Dumping database structure for echarge
 CREATE DATABASE IF NOT EXISTS `echarge` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
 USE `echarge`;
 
--- Dumping structure for table echarge.sys_config
 CREATE TABLE IF NOT EXISTS `sys_config` (
     `id` int(11) NOT NULL AUTO_INCREMENT,
     `key` varchar(50) NOT NULL,
@@ -32,9 +30,6 @@ CREATE TABLE IF NOT EXISTS `sys_config` (
     UNIQUE KEY `IDX_2c363c25cf99bcaab3a7f389ba` (`key`)
     ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
--- Data exporting was unselected.
-
--- Dumping structure for table echarge.sys_login_log
 CREATE TABLE IF NOT EXISTS `sys_login_log` (
     `created_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
     `updated_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
@@ -47,9 +42,6 @@ CREATE TABLE IF NOT EXISTS `sys_login_log` (
     PRIMARY KEY (`id`)
     ) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8mb4;
 
--- Data exporting was unselected.
-
--- Dumping structure for table echarge.sys_req_log
 CREATE TABLE IF NOT EXISTS `sys_req_log` (
     `created_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
     `updated_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
@@ -64,9 +56,6 @@ CREATE TABLE IF NOT EXISTS `sys_req_log` (
     PRIMARY KEY (`id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Data exporting was unselected.
-
--- Dumping structure for table echarge.sys_task
 CREATE TABLE IF NOT EXISTS `sys_task` (
     `created_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
     `updated_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
@@ -87,9 +76,6 @@ CREATE TABLE IF NOT EXISTS `sys_task` (
     UNIQUE KEY `IDX_ef8e5ab5ef2fe0ddb1428439ef` (`name`)
     ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 
--- Data exporting was unselected.
-
--- Dumping structure for table echarge.sys_task_log
 CREATE TABLE IF NOT EXISTS `sys_task_log` (
     `created_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
     `updated_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
@@ -101,9 +87,6 @@ CREATE TABLE IF NOT EXISTS `sys_task_log` (
     PRIMARY KEY (`id`)
     ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
--- Data exporting was unselected.
-
--- Dumping structure for table echarge.sys_user
 CREATE TABLE IF NOT EXISTS `sys_user` (
     `created_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
     `updated_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
@@ -123,9 +106,6 @@ CREATE TABLE IF NOT EXISTS `sys_user` (
     UNIQUE KEY `IDX_9e7164b2f1ea1348bc0eb0a7da` (`username`)
     ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4;
 
--- Data exporting was unselected.
-
--- Dumping structure for table echarge.sys_user_role
 CREATE TABLE IF NOT EXISTS `sys_user_role` (
     `created_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
     `updated_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
@@ -135,9 +115,6 @@ CREATE TABLE IF NOT EXISTS `sys_user_role` (
     PRIMARY KEY (`id`)
     ) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4;
 
--- Data exporting was unselected.
-
--- Dumping structure for table echarge.tbl_admin
 CREATE TABLE IF NOT EXISTS `tbl_admin` (
     `id` bigint(20) NOT NULL AUTO_INCREMENT,
     `username` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -160,32 +137,28 @@ CREATE TABLE IF NOT EXISTS `tbl_admin` (
     UNIQUE KEY `phone_number` (`phone_number`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Data exporting was unselected.
-
--- Dumping structure for table echarge.tbl_user
 CREATE TABLE IF NOT EXISTS `tbl_user` (
-    `id` int(11) NOT NULL AUTO_INCREMENT,
-    `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-    `password` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-    `salt` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-    `first_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-    `last_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-    `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
-    `phone_number` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT '',
-    `avatar` varchar(255) CHARACTER SET utf8mb4 DEFAULT NULL,
-    `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT '',
-    `is_deleted` tinyint(1) NOT NULL DEFAULT '0',
-    `is_active` tinyint(1) NOT NULL DEFAULT '0',
-    `created_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
-    `created_user` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT 'system',
-    `updated_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
-    `updated_user` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT 'system',
-    PRIMARY KEY (`id`)
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `steve_user_id` INT(11) NOT NULL,
+    `username` VARCHAR(255) NOT NULL COLLATE 'utf8mb4_unicode_ci',
+    `password` VARCHAR(100) NOT NULL COLLATE 'utf8mb4_unicode_ci',
+    `salt` VARCHAR(100) NOT NULL COLLATE 'utf8mb4_unicode_ci',
+    `first_name` VARCHAR(255) NOT NULL COLLATE 'utf8mb4_unicode_ci',
+    `last_name` VARCHAR(255) NOT NULL COLLATE 'utf8mb4_unicode_ci',
+    `email` VARCHAR(255) NOT NULL DEFAULT '' COLLATE 'utf8mb4_unicode_ci',
+    `phone_number` VARCHAR(50) NULL DEFAULT '' COLLATE 'utf8mb4_unicode_ci',
+    `avatar_url` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8mb4_0900_ai_ci',
+    `address` VARCHAR(255) NULL DEFAULT '' COLLATE 'utf8mb4_unicode_ci',
+    `is_deleted` TINYINT(1) NOT NULL DEFAULT '0',
+    `is_active` TINYINT(1) NOT NULL DEFAULT '0',
+    `created_at` DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+    `created_user` VARCHAR(50) NULL DEFAULT 'system' COLLATE 'utf8mb4_unicode_ci',
+    `updated_at` DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+    `updated_user` VARCHAR(50) NULL DEFAULT 'system' COLLATE 'utf8mb4_unicode_ci',
+    PRIMARY KEY (`id`) USING BTREE,
+    UNIQUE INDEX `steve_user_id` (`steve_user_id`) USING BTREE
     ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Data exporting was unselected.
-
--- Dumping structure for table echarge.tbl_user_access_log
 CREATE TABLE IF NOT EXISTS `tbl_user_access_log` (
     `id` bigint(20) NOT NULL AUTO_INCREMENT,
     `user_id` bigint(20) NOT NULL,
@@ -202,7 +175,87 @@ CREATE TABLE IF NOT EXISTS `tbl_user_access_log` (
     PRIMARY KEY (`id`)
     ) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Data exporting was unselected.
+CREATE TABLE IF NOT EXISTS `tbl_car_brand` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(255) NOT NULL COLLATE 'utf8mb4_unicode_ci',
+    `release_date` DATE NULL DEFAULT NULL,
+    `description` TEXT NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+    `image_url` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+    `is_deleted` TINYINT(1) NOT NULL DEFAULT '0',
+    `is_active` TINYINT(1) NOT NULL DEFAULT '0',
+    `created_at` DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+    `created_user` VARCHAR(50) NULL DEFAULT 'system' COLLATE 'utf8mb4_unicode_ci',
+    `updated_at` DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+    `updated_user` VARCHAR(50) NULL DEFAULT 'system' COLLATE 'utf8mb4_unicode_ci',
+    PRIMARY KEY (`id`) USING BTREE,
+    UNIQUE INDEX `name` (`name`) USING BTREE
+    ) COLLATE='utf8mb4_unicode_ci' ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS `tbl_car_series` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `car_brand_id` INT(11) NOT NULL,
+    `name` VARCHAR(255) NOT NULL COLLATE 'utf8mb4_unicode_ci',
+    `release_date` DATE NULL DEFAULT NULL,
+    `description` TEXT NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+    `image_url` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+    `is_deleted` TINYINT(1) NOT NULL DEFAULT '0',
+    `is_active` TINYINT(1) NOT NULL DEFAULT '0',
+    `created_at` DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+    `created_user` VARCHAR(50) NULL DEFAULT 'system' COLLATE 'utf8mb4_unicode_ci',
+    `updated_at` DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+    `updated_user` VARCHAR(50) NULL DEFAULT 'system' COLLATE 'utf8mb4_unicode_ci',
+    PRIMARY KEY (`id`) USING BTREE,
+    UNIQUE INDEX `name` (`name`) USING BTREE,
+    INDEX `car_brand_id` (`car_brand_id`) USING BTREE
+    ) COLLATE='utf8mb4_unicode_ci' ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS `tbl_car_model` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `car_series_id` INT(11) NOT NULL,
+    `charge_protocol_id` INT(11) NOT NULL,
+    `name` VARCHAR(255) NOT NULL COLLATE 'utf8mb4_unicode_ci',
+    `release_date` DATE NULL DEFAULT NULL,
+    `description` TEXT NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+    `image_url` VARCHAR(255) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+    `is_deleted` TINYINT(1) NOT NULL DEFAULT '0',
+    `is_active` TINYINT(1) NOT NULL DEFAULT '0',
+    `created_at` DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+    `created_user` VARCHAR(50) NULL DEFAULT 'system' COLLATE 'utf8mb4_unicode_ci',
+    `updated_at` DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+    `updated_user` VARCHAR(50) NULL DEFAULT 'system' COLLATE 'utf8mb4_unicode_ci',
+    PRIMARY KEY (`id`) USING BTREE,
+    UNIQUE INDEX `name` (`name`) USING BTREE,
+    INDEX `car_series_id` (`car_series_id`) USING BTREE,
+    INDEX `charge_protocol_id` (`charge_protocol_id`) USING BTREE
+    ) COLLATE='utf8mb4_unicode_ci' ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS `tbl_charge_protocol` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(255) NOT NULL COLLATE 'utf8mb4_unicode_ci',
+    `code` VARCHAR(100) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+    `release_date` DATE NULL DEFAULT NULL,
+    `is_deleted` TINYINT(1) NOT NULL DEFAULT '0',
+    `is_active` TINYINT(1) NOT NULL DEFAULT '0',
+    `created_at` DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+    `created_user` VARCHAR(50) NULL DEFAULT 'system' COLLATE 'utf8mb4_unicode_ci',
+    `updated_at` DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+    `updated_user` VARCHAR(50) NULL DEFAULT 'system' COLLATE 'utf8mb4_unicode_ci',
+    PRIMARY KEY (`id`) USING BTREE,
+    UNIQUE INDEX `name` (`name`) USING BTREE
+    ) COLLATE='utf8mb4_unicode_ci' ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS `tbl_user_car_model` (
+    `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `user_id` INT(11) NOT NULL,
+    `car_model_id` INT(11) NOT NULL,
+    `created_at` DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+    `created_user` VARCHAR(50) NULL DEFAULT 'system' COLLATE 'utf8mb4_unicode_ci',
+    `updated_at` DATETIME(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
+    `updated_user` VARCHAR(50) NULL DEFAULT 'system' COLLATE 'utf8mb4_unicode_ci',
+    PRIMARY KEY (`id`) USING BTREE,
+    INDEX `user_id` (`user_id`) USING BTREE,
+    INDEX `car_model_id` (`car_model_id`) USING BTREE
+    ) COLLATE='utf8mb4_unicode_ci' ENGINE=InnoDB;
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

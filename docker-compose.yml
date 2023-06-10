@@ -11,9 +11,9 @@ services:
     environment:
       MYSQL_DATABASE: echarge
       MYSQL_ROOT_USER: root
-      MYSQL_ROOT_PASSWORD: 1
+      MYSQL_ROOT_PASSWORD: 35wU@nXwoq#2
       MYSQL_USER: echarge
-      MYSQL_PASSWORD: 1
+      MYSQL_PASSWORD: echarge@123
       SERVICE_NAME: mysql8
     volumes:
       #- ./mysql/my.cnf:/etc/mysql/my.cnf
